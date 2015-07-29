@@ -7,6 +7,13 @@ body {
     -webkit-font-smoothing:antialiased;
 }
 
+.paginate{
+    margin-top:10px;
+    margin-bottom:15px;
+    padding: 0;
+
+}
+
 .navbar.navbar-inverse {
     background:url('/assets/stardust.png');
     border-radius: 0;
@@ -47,12 +54,12 @@ body {
     margin:0;
 }
 .card .title {
-    position:absolute;
     bottom:0;
     left:0;
     padding:20px;
     color:#FFF;
 }
+
 h1,h2,h3,h4,h5,h6 {
     margin:0;
     padding: 0;
