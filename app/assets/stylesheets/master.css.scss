@@ -66,8 +66,38 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .field_with_errors {
-  color: #ff3333;
-  background-color: #FFEEEE;
-  border-radius: 3px;
-  padding:8px;
+    color: #ff3333;
+    background-color: #FFEEEE;
+    border-radius: 3px;
+    padding:8px;
+}
+
+.notice_wrapper{
+    postion: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    p{
+        padding: 2.5rem 0;
+        text-align: center;
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #FFF;
+        letter-spacing: 1px;
+    }
+}
+
+.alert{
+    border-radius: 0;
+}
+
+.alert-info{
+    background: rgba(15, 121, 170, 0.85); 
+    border-color: #0C658D;
+}
+
+.alert-danger {
+    background: rgba(156, 13, 27, 0.85); 
+    border-color: #870A16;
 }
