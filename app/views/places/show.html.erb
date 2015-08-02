@@ -39,6 +39,14 @@
   </div>
 </div>
 
+<div class="clear"></div>
+
+<%= simple_form_for @comment, :url => '#', html: {class: "form-signin"} do |f| %>
+  <%= f.input :message %>
+  <%= f.input :rating %>
+  <%= f.submit "Add a Comment", :class => 'btn btn-primary' %>
+<% end %>
+
 <script>
 $(function(){
     //use mapselector="div" if you don't know the map id
