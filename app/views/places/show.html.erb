@@ -41,7 +41,7 @@
 
 <div class="clear"></div>
 
-<%= simple_form_for @comment, :url => '#', html: {class: "form-signin"} do |f| %>
+<%= simple_form_for @comment, :url => place_comments_path(@place), html: {class: "form-signin"} do |f| %>
   <%= f.input :message %>
   <%= f.input :rating %>
   <%= f.submit "Add a Comment", :class => 'btn btn-primary' %>
