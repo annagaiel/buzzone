@@ -26,7 +26,7 @@
 
   </script>
 
-  <div id="map-canvas"></div>
+         <div id="map-canvas"></div>
 <% end %>
 
 <br />
@@ -38,3 +38,70 @@
     <% end %>
   </div>
 </div>
+
+<script>
+$(function(){
+    //use mapselector="div" if you don't know the map id
+    var mapSelector = "#map-canvas div";
+    var attemptInterval = 2;
+    var maxAttempts = 18;
+    var mA = 0;
+    var notYet = true;
+    var titles = {"pan up":1,"pan down":1,"pan right":1,"pan left":1, "zoom in":1,"zoom out":1,"show street map":1,"show satellite imagery":1};
+    
+    function addKey(){
+        mA++;
+        if(mA > maxAttempts){return;}
+        $(mapSelector).each(function(index){
+        
+            var title = this.getAttribute("title")
+            if(title) title=title.toLowerCase().trim();
+            if(title in titles){
+                jqel = $(this);
+                titles[title] = jqel;
+                jqel.attr("tabindex","0");
+                jqel.attr("role","button");
+                jqel.keydown(function(ev){
+                    if(ev.which==13) {
+                        $(this).trigger("click")
+                    }else if(ev.which==40) {
+                        titles["pan down"].trigger("click");
+                    }else if(ev.which==38) {
+                        titles["pan up"].trigger("click");
+                    }else if(ev.which==37) {
+                        titles["pan left"].trigger("click");
+                    }else if(ev.which==39) {
+                        titles["pan right"].trigger("click");
+                    }else if(ev.which==61 || ev.which == 187) {
+                        titles["zoom in"].trigger("click");
+                    }else if(ev.which==173 || ev.which == 189) {
+                        titles["zoom out"].trigger("click");
+                    }else{
+                        return
+                    }
+                    ev.preventDefault();
+                });
+                
+                (function(){
+                    var mo = false;
+                    var bo = jqel.css("border");
+                    var ma = jqel.css("margin");
+                    var bc = jqel.css("background-color");
+                    var op = jqel.css("opacity");
+                    
+                    jqel.mouseover(function(){mo=true;});
+                    jqel.mouseout(function(){mo=false;});
+                    jqel.focus(function(){
+                        if(mo)return;
+                        $(this).css({"border":"2px solid blue","margin":"-2px","background-color":"transparent","opacity":"1"});
+                    });
+                    jqel.blur(function(){$(this).css({"border":bo,"margin":ma,"background-color":bc,"opacity":op});});
+                    notYet = false;
+                })();
+            }
+        });
+        if(notYet){setTimeout(addKey,attemptInterval*1000);}
+    }
+    addKey();
+});
+</script>
