@@ -58,6 +58,7 @@ Buzzone::Application.routes.draw do
   root 'places#index'
   resources :places do
     resources :comments, :only => :create
+    resources :photos, :only => :create
   end
   # The priority is based upon order of creation: first created -> highest priority.
 end
