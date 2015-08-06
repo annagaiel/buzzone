@@ -20,6 +20,13 @@
 		  </div>
 		<% end %>
 
+		<% if place.photos.present? %>
+			  <div class="col-xs-12">
+			      <% if place.photos.last.picture.present? %>
+					<%= image_tag place.photos.last.picture %>
+			      <% end %>
+			  </div>
+		<% end %>
 		</div>
 	</div>
 <% end %>
