@@ -18,6 +18,7 @@ body {
     background:url('/assets/stardust.png');
     border-radius: 0;
     box-shadow: 0px 1px 3px #2a2a2a;
+    margin-bottom:0;
 }
 
 .navbar-inverse .navbar-brand {
@@ -112,20 +113,42 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
 }
+
 blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
 }
+
 blockquote p {
-  display: inline;
+   display: inline;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    height: 550px;
+    width: 100%;
+}
+
+.carousel-caption {
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 60px;
+    font-weight:100;
+    text-shadow: rgba(0,0,0,0.95) 2px 2px;
+    background-color: rgba(0,0,0,0.5);
+    width:100%;
+    position:absolute;
+    left:0;
+}
+
+.carousel {
+    box-shadow: 0px 3px 8px #2a2a2a;
 }
