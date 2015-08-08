@@ -32,3 +32,47 @@
     </blockquote>
   </div>
 <% end %>
+
+<div class="clear"></div>
+<br /><br />
+<h2 class="text-center">My Places</h2>
+<br /><br />
+
+<% @user.places.each do |place| %>
+	<div class="card-box col-xs-10 col-xs-offset-1">
+ 		<h1><%= link_to place.name, place_path(place) %></h1>
+		<br />
+		<i><%= place.address %></i>
+		<br /><br />
+		<p><%= place.description %></p>
+		<br />
+		
+		<% if place.photos.present? %>
+			<div class="col-xs-6">
+				<% if place.photos.last.picture.present? %>
+					<%= image_tag place.photos.last.picture %>
+			      <% end %>
+			</div>
+		<% end %>
+
+		<% if place.comments.present? %>
+			<div class="col-xs-6">
+				<blockquote>
+					<% if place.comments.last.humanized_rating.present? %>
+						<b><%= place.comments.last.humanized_rating %></b> -
+					<% end %>
+					<%= place.comments.last.message %>			
+					<small><%= place.comments.last.user.email %></small>
+				</blockquote>
+			</div>
+		<% end %>
+		
+		<% if place.user.present? %>
+			<div class="col-xs-12">
+				<br />
+				<small><%= place.user.email %></small>
+			</div>
+		<% end %>
+	</div>
+
+<% end %>
