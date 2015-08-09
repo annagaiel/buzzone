@@ -45,6 +45,10 @@ body {
     line-height:48px;
     font-size:24px;
     font-weight:300;
+    bottom:0;
+    left:0;
+    padding:20px;
+    color:#FFF;
 }
 .card .content {
     font-weight:300;
@@ -52,12 +56,6 @@ body {
 }
 .card p {
     margin:0;
-}
-.card .title {
-    bottom:0;
-    left:0;
-    padding:20px;
-    color:#FFF;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -151,4 +149,17 @@ blockquote p {
 
 .carousel {
     box-shadow: 0px 3px 8px #2a2a2a;
+}
+
+.img-thumbnail{
+    max-width: 200px;
+    max-height: 300px;
+}
+
+.caption-label p{
+    margin-top: 10px;
+}
+
+.user-profile{
+    background: url('/assets/crossword.png');
 }

@@ -64,7 +64,7 @@
 		<% if place.photos.present? %>
 			  <div class="col-xs-12">
 			      <% if place.photos.last.picture.present? %>
-					<%= image_tag place.photos.last.picture %>
+					<%= image_tag place.photos.last.picture, :class => "img-responsive img-thumbnail", :alt => "" %>
 			      <% end %>
 			  </div>
 		<% end %>
