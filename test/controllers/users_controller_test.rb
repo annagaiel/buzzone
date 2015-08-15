@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   test "users show page" do
-	user = User.create(:email => 'buzzoneapp@gmail.com', :encrypted_password => '12fdsa12')
+	user = FactoryGirl.create(:user)
 	get :show, id => user.id
 	assert_response :success
   end
