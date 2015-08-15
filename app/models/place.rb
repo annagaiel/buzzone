@@ -8,6 +8,6 @@ class Place < ActiveRecord::Base
   after_validation :geocode          # auto-fetch coordinates
 
   validates :name, :presence => true, length: {minimum: 3}
-  validates :address, :presence => true
+  validates :address, :presence => true, uniqueness: true
   validates :description, :presence => true
 end
