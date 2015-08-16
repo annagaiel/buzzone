@@ -3,12 +3,12 @@ require 'test_helper'
 class PlacesControllerTest < ActionController::TestCase
   test "places show page" do
 	place = FactoryGirl.create(:place)
-	get :show, id => place.id
+	get :show, :id => place.id
 	assert_response :success
   end
 
   test "places show page, not found" do 
-  	get :show, :id 'OMG'
+  	get :show, :id => 'OMG'
   	assert_response :not_found
   end
 
@@ -34,10 +34,10 @@ class PlacesControllerTest < ActionController::TestCase
     assert_no_difference 'Place.count' do
       post :create, {:place => {
           :name => 'yolo',
-          :address => '123 Street'
+          :address => '123 Street',
           :description => 'omg',
           :latitude => 42.3631519,
-          :lng => -71.056098,
+          :longitude => -71.056098
         }
       }
     end
@@ -54,11 +54,11 @@ class PlacesControllerTest < ActionController::TestCase
           :address => '123 Street',
           :description => 'omg',
           :latitude => 42.3631519,
-          :longitude => -71.056098,
+          :longitude => -71.056098
         }
       }
     end
-    assert_redirected_to places_path
+    assert_redirected_to root_path
 
     assert_equal 1, user.places.count
   end
@@ -70,9 +70,9 @@ class PlacesControllerTest < ActionController::TestCase
     assert_no_difference 'Place.count' do
       post :create, {:place => {
           :name => '',
-          :address => '123 Street',
+          :address => '',
           :description => '',
-          :lat => nil,
+          :latitude => nil,
           :longitude => nil
         }
       }
@@ -82,4 +82,3 @@ class PlacesControllerTest < ActionController::TestCase
   end
 
 end
-
