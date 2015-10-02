@@ -50,16 +50,21 @@
 
   <div class="pull-right">
     <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-      Add Comment
+      Add a comment
     </button>
     <button class="btn btn-primary" data-toggle="modal" data-target="#myPhotoModal">
-      Add Photo
+      Add a photo
     </button>
   </div>
 
 </div>
 
 <script>
+
+jQuery(function() {
+  $("a.fancybox").fancybox();
+});
+
 $(function(){
     //use mapselector="div" if you don't know the map id
     var mapSelector = "#map-canvas div";

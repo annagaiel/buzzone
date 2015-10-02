@@ -22,21 +22,17 @@
 
 <div class="clear"></div>
 
-<h2>Photos</h2>
+<% if @place.photos.size >= 1 %> <h2>Photos</h2> <% end %>
 <% @place.photos.each do |photo| %>
-<br />
-<div class="row">
-    <div class="col-md-3">  
-        <div class="img-thumbnail">
-          <% if photo.picture.present? %>
-            <%= image_tag photo.picture, :class => "img-responsive", :alt => "" %>  
-          <% end %>
-          <div class="caption-label">
-            <% if photo.caption.present? %>
-              <p class="text-center"><%= photo.caption %></p>
-            <% end %>
-          </div>
-        </div>  
-    </div>
+<br /> 
+<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center">
+  <% if photo.picture.present? %>
+    <a class="fancybox" href="<%= photo.picture %>"><%= image_tag photo.picture, :class => 'img-responsive img-thumbnail' %></a>
+  <% end %>
+  <div class="caption-label">
+    <% if photo.caption.present? %>
+      <p class="text-center"><%= photo.caption %></p>
+    <% end %>
   </div>
+</div>  
 <% end %>

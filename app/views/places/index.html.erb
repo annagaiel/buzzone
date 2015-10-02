@@ -62,7 +62,7 @@
 
 		<% if place.photos.present? %>
       <% if place.photos.last.picture.present? %>
-      		<%= image_tag place.photos.last.picture, :class => "img-responsive img-thumbnail col-xs-12 col-sm-6 col-md-3", :alt => "" %>
+          <a class="fancybox" href="<%= place.photos.last.picture %>"><%= image_tag place.photos.last.picture, :class => "img-responsive img-thumbnail col-xs-12 col-sm-6 col-md-3"%></a>
 			<% end %>
 		<% end %>
 	</div>
@@ -75,5 +75,9 @@
 <script>
   jQuery('.carousel').carousel({
     interval: 6000
-  })
+  });
+
+  jQuery(function() {
+    $("a.fancybox").fancybox();
+  });
 </script>

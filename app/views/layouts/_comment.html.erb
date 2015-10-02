@@ -24,7 +24,7 @@
 
 <br />
 
-<h2>Comments</h2>
+<% if @place.comments.size >= 1 %> <h2>Comments</h2> <% end %>
 <% @place.comments.each do |comment| %>
 
   <div class="col-xs-12 col-sm-6">
