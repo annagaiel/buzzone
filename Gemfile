@@ -55,6 +55,8 @@ gem "factory_girl_rails", "~> 4.0"
 
 gem 'fancybox-rails'
 
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
