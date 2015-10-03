@@ -29,40 +29,40 @@ class PlacesController < ApplicationController
 
   end
 
-  	def edit
-  		@place = Place.find(params[:id])
+  def edit
+  	@place = Place.find(params[:id])
 
-  		if @place.user != current_user
-    		return render :text => 'Not Allowed', :status => :forbidden
-  		end
-  	end
+		if @place.user != current_user
+  		return render :text => 'Not Allowed', :status => :forbidden
+		end
+	end
 
-  	def update
-  		@place = Place.find(params[:id])
+	def update
+		@place = Place.find(params[:id])
 
-  		if @place.user != current_user
-    		return render :text => 'Not Allowed', :status => :forbidden
-  		end
+		if @place.user != current_user
+  		return render :text => 'Not Allowed', :status => :forbidden
+		end
 
-  		@place.update_attributes(place_params)
-  		
-  		if @place.valid?
-    		redirect_to root_path
-  		else
-    		render :new, :status => :unprocessable_entity
-  		end
-  	end
+		@place.update_attributes(place_params)
+		
+		if @place.valid?
+  		redirect_to place_path(@place)
+		else
+  		render :new, :status => :unprocessable_entity
+		end
+	end
 
-  	def destroy
-  		@place = Place.find(params[:id])
-  		
- 		if @place.user != current_user
-    		return render :text => 'Not Allowed', :status => :forbidden
-  		end
+	def destroy
+		@place = Place.find(params[:id])
+		
+		if @place.user != current_user
+  		return render :text => 'Not Allowed', :status => :forbidden
+		end
 
-  		@place.destroy
-  		redirect_to root_path
-    end
+		@place.destroy
+		redirect_to root_path
+  end
 	
 	private
 

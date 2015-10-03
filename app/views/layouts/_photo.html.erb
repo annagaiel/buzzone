@@ -3,8 +3,8 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h2 class="modal-title" id="myModalLabel">Add a Comment</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h2 class="modal-title" id="photoModal">Add Photo</h2>
       </div>
       <%= simple_form_for @photo, :url => place_photos_path(@place) do |f| %>
       <div class="modal-body">
@@ -12,8 +12,9 @@
          <%= f.input :picture %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= f.submit "Add a Photo", :class => 'btn btn-primary' %>
+        <%= button_tag(type: 'submit', class: "btn btn-primary btn-lg", style: "width: 100%;") do %>
+         <span class="glyphicon glyphicon-camera"></span> Post Photo
+        <% end %>
       </div>
       <% end %>
     </div>
